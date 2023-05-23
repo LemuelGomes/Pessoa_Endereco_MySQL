@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Pessoa_Endereco_MySQL
 {
-    public partial class Form1 : Form
+    public partial class FormCadastro : Form
     {
-        public Form1()
+        public FormCadastro()
         {
             InitializeComponent();
-        }
+        }       
     }
 }
