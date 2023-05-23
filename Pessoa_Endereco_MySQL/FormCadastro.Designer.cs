@@ -52,7 +52,7 @@
             this.comboBoxUF = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxESTADO = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxETNIA = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
@@ -272,6 +272,33 @@
             // 
             this.comboBoxUF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxUF.FormattingEnabled = true;
+            this.comboBoxUF.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
             this.comboBoxUF.Location = new System.Drawing.Point(423, 70);
             this.comboBoxUF.Name = "comboBoxUF";
             this.comboBoxUF.Size = new System.Drawing.Size(127, 24);
@@ -290,19 +317,55 @@
             // 
             this.comboBoxESTADO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxESTADO.FormattingEnabled = true;
+            this.comboBoxESTADO.Items.AddRange(new object[] {
+            "Acre",
+            "Alagoas",
+            "Amapá",
+            "Amazonas",
+            "Bahia",
+            "Ceará",
+            "Distrito Federal",
+            "Espírito Santo",
+            "Goiás",
+            "Maranhão",
+            "Mato Grosso",
+            "Mato Grosso do Sul",
+            "Minas Gerais",
+            "Pará",
+            "Paraíba",
+            "Paraná",
+            "Pernambuco",
+            "Piauí",
+            "Rio de Janeiro",
+            "Rio Grande do Norte",
+            "Rio Grande do Sul",
+            "Rondônia",
+            "Roraima",
+            "Santa Catarina",
+            "São Paulo",
+            "Sergipe",
+            "Tocantins"});
             this.comboBoxESTADO.Location = new System.Drawing.Point(237, 70);
             this.comboBoxESTADO.Name = "comboBoxESTADO";
             this.comboBoxESTADO.Size = new System.Drawing.Size(162, 24);
             this.comboBoxESTADO.TabIndex = 15;
             // 
-            // comboBox3
+            // comboBoxETNIA
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(227, 154);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(127, 24);
-            this.comboBox3.TabIndex = 19;
+            this.comboBoxETNIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxETNIA.FormattingEnabled = true;
+            this.comboBoxETNIA.Items.AddRange(new object[] {
+            "Brancos",
+            "Negros",
+            "Indígenas",
+            "Pardos",
+            "Mulatos",
+            "Caboclos",
+            "Cafuzos"});
+            this.comboBoxETNIA.Location = new System.Drawing.Point(227, 154);
+            this.comboBoxETNIA.Name = "comboBoxETNIA";
+            this.comboBoxETNIA.Size = new System.Drawing.Size(127, 24);
+            this.comboBoxETNIA.TabIndex = 19;
             // 
             // label10
             // 
@@ -363,6 +426,7 @@
             this.buttonCADASTRAR.TabIndex = 25;
             this.buttonCADASTRAR.Text = "Cadastrar";
             this.buttonCADASTRAR.UseVisualStyleBackColor = true;
+            this.buttonCADASTRAR.Click += new System.EventHandler(this.buttonCADASTRAR_Click);
             // 
             // FormCadastro
             // 
@@ -376,7 +440,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBoxETNIA);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.comboBox2);
@@ -424,7 +488,7 @@
         private System.Windows.Forms.ComboBox comboBoxUF;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxESTADO;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxETNIA;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label11;
