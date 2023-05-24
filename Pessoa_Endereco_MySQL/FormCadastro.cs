@@ -43,9 +43,18 @@ namespace Pessoa_Endereco_MySQL
                 dataGridViewCADASTRO.DataSource = tabelaCADASTRO;
 
                 dataGridViewCADASTRO.Columns["nome"].HeaderText = "Nome";
+                dataGridViewCADASTRO.Columns["sobrenome"].HeaderText = "Sobrenome";
+                dataGridViewCADASTRO.Columns["nome_social"].HeaderText = "Nome social";
+                dataGridViewCADASTRO.Columns["rg"].HeaderText = "RG";
                 dataGridViewCADASTRO.Columns["cpf"].HeaderText = "CPF";
+                dataGridViewCADASTRO.Columns["data_nasc"].HeaderText = "Data de nascimento";
+                dataGridViewCADASTRO.Columns["etnia"].HeaderText = "Etnia";
+                dataGridViewCADASTRO.Columns["genero"].HeaderText = "Gênero";
                 dataGridViewCADASTRO.Columns["logradouro"].HeaderText = "Logradouro";
+                dataGridViewCADASTRO.Columns["bairro"].HeaderText = "Bairro";
+                dataGridViewCADASTRO.Columns["cidade"].HeaderText = "Cidade";
                 dataGridViewCADASTRO.Columns["estado"].HeaderText = "Estado";
+                dataGridViewCADASTRO.Columns["uf"].HeaderText = "UF";
             }
             catch (Exception erro_mysql)
             {
