@@ -88,10 +88,10 @@ namespace Pessoa_Endereco_MySQL
                 conexao.Open();
                 comando.CommandText = "SELECT MAX(id) FROM tbl_endereco";
                 MySqlDataReader readerID = comando.ExecuteReader();
-                
+
                 if (readerID.Read())
                 {
-                    ultimoID = readerID.GetString(0);                    
+                    ultimoID = readerID.GetString(0);
                 }
             }
             catch (Exception erro)
@@ -134,7 +134,7 @@ namespace Pessoa_Endereco_MySQL
             }
             finally
             {
-                conexao.Close();                
+                conexao.Close();
             }
             atualizar_dataGRID();
             MessageBox.Show("Cadastrado com sucesso!");

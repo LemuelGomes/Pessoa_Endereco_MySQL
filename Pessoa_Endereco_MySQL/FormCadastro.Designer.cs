@@ -445,7 +445,7 @@
             this.buttonCADASTRAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCADASTRAR.Image = global::Pessoa_Endereco_MySQL.Properties.Resources.registro;
             this.buttonCADASTRAR.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCADASTRAR.Location = new System.Drawing.Point(12, 367);
+            this.buttonCADASTRAR.Location = new System.Drawing.Point(12, 368);
             this.buttonCADASTRAR.Name = "buttonCADASTRAR";
             this.buttonCADASTRAR.Size = new System.Drawing.Size(585, 37);
             this.buttonCADASTRAR.TabIndex = 25;
@@ -470,7 +470,7 @@
             this.buttonFECHAR.FlatAppearance.BorderSize = 0;
             this.buttonFECHAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFECHAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFECHAR.Location = new System.Drawing.Point(965, 367);
+            this.buttonFECHAR.Location = new System.Drawing.Point(965, 368);
             this.buttonFECHAR.Name = "buttonFECHAR";
             this.buttonFECHAR.Size = new System.Drawing.Size(82, 37);
             this.buttonFECHAR.TabIndex = 27;
