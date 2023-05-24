@@ -24,12 +24,44 @@ namespace Pessoa_Endereco_MySQL
             servidor = "Server=localhost;Database=pessoa_endereco;Uid=root;Pwd=";
             conexao = new MySqlConnection(servidor);
             comando = conexao.CreateCommand();
+
+            atualizar_dataGRID();
+        }
+
+        private void atualizar_dataGRID()
+        {
+            try
+            {
+                conexao.Open();
+                comando.CommandText = "SELECT nome, cpf, logradouro, estado FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
+
+                MySqlDataAdapter adaptadorCADASTRO = new MySqlDataAdapter(comando);
+                DataTable tabelaCADASTRO = new DataTable();
+
+                adaptadorCADASTRO.Fill(tabelaCADASTRO);
+
+                dataGridViewCADASTRO.DataSource = tabelaCADASTRO;
+
+                dataGridViewCADASTRO.Columns["nome"].HeaderText = "Nome";
+                dataGridViewCADASTRO.Columns["cpf"].HeaderText = "CPF";
+                dataGridViewCADASTRO.Columns["logradouro"].HeaderText = "Logradouro";
+                dataGridViewCADASTRO.Columns["estado"].HeaderText = "Estado";
+            }
+            catch (Exception erro_mysql)
+            {
+                MessageBox.Show(erro_mysql.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
 
         private void buttonCADASTRAR_Click(object sender, EventArgs e)
         {
             string estado = comboBoxESTADO.Text;
             string uf = comboBoxUF.Text;
+            string ultimoID = "";
 
             try
             {
@@ -44,12 +76,12 @@ namespace Pessoa_Endereco_MySQL
             finally
             {
                 conexao.Close();
-                MessageBox.Show("Cadastrado com sucesso!");
-
-                textBoxLOGRADOURO.Clear();
-                textBoxBAIRRO.Clear();
-                textBoxCIDADE.Clear();
             }
+            textBoxLOGRADOURO.Clear();
+            textBoxBAIRRO.Clear();
+            textBoxCIDADE.Clear();
+
+            //--------------------------------------------------//
 
             try
             {
@@ -57,12 +89,9 @@ namespace Pessoa_Endereco_MySQL
                 comando.CommandText = "SELECT MAX(id) FROM tbl_endereco";
                 MySqlDataReader readerID = comando.ExecuteReader();
                 
-                string ultimoID;
-                
-                if(readerID.Read())
+                if (readerID.Read())
                 {
-                    ultimoID = readerID.GetString(0);
-                    MessageBox.Show(ultimoID);
+                    ultimoID = readerID.GetString(0);                    
                 }
             }
             catch (Exception erro)
@@ -74,10 +103,29 @@ namespace Pessoa_Endereco_MySQL
                 conexao.Close();
             }
 
+            //--------------------------------------------------//
+
+            string genero = "";
+
+            if (radioButtonMASC.Checked)
+            {
+                genero = "Masculino";
+            }
+            if (radioButtonFEM.Checked)
+            {
+                genero = "Feminino";
+            }
+            if (radioButtonOUT.Checked)
+            {
+                genero = "Outros";
+            }
+
+            //--------------------------------------------------//
+
             try
             {
                 conexao.Open();
-                comando.CommandText = "INSERT INTO tbl_pessoa (nome, sobrenome, nome_social, rg, cpf, data_nasc, etnia, genero, fk_endereco) VALUES ('" + textBoxNOME.Text + "', '" + textBoxSOBRENOME.Text + "', '" + textBoxNOMESOCIAL.Text + "', '" + textBoxRG.Text + "', '" + textBoxCPF.Text + "', '" + dateTimePicker1.Checked + "', '" + comboBoxETNIA.SelectedItem + "', '";
+                comando.CommandText = "INSERT INTO tbl_pessoa (nome, sobrenome, nome_social, rg, cpf, data_nasc, etnia, genero, fk_endereco) VALUES ('" + textBoxNOME.Text + "', '" + textBoxSOBRENOME.Text + "', '" + textBoxNOMESOCIAL.Text + "', '" + textBoxRG.Text + "', '" + textBoxCPF.Text + "', '" + dateTimePickerDATANASC.Value.ToString("yyyy-MM-dd") + "', '" + comboBoxETNIA.Text + "', '" + genero + "', " + ultimoID + ");";
                 comando.ExecuteNonQuery();
             }
             catch (Exception erro)
@@ -86,15 +134,20 @@ namespace Pessoa_Endereco_MySQL
             }
             finally
             {
-                conexao.Close();
-                MessageBox.Show("Cadastrado com sucesso!");
+                conexao.Close();                
             }
+            atualizar_dataGRID();
+            MessageBox.Show("Cadastrado com sucesso!");
             textBoxNOME.Clear();
             textBoxSOBRENOME.Clear();
             textBoxNOMESOCIAL.Clear();
             textBoxRG.Clear();
             textBoxCPF.Clear();
         }
+
+        private void buttonFECHAR_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
-
