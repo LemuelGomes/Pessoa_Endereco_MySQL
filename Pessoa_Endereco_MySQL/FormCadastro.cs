@@ -28,6 +28,8 @@ namespace Pessoa_Endereco_MySQL
             atualizar_dataGRID();
         }
 
+        string id_pessoa;
+
         private void atualizar_dataGRID()
         {
             try
@@ -161,6 +163,7 @@ namespace Pessoa_Endereco_MySQL
 
         private void dataGridViewCADASTRO_MouseClick(object sender, MouseEventArgs e)
         {
+            id_pessoa = dataGridViewCADASTRO.CurrentRow.Cells[6].Value.ToString();
             textBoxNOME.Text = dataGridViewCADASTRO.CurrentRow.Cells[7].Value.ToString();
             textBoxSOBRENOME.Text = dataGridViewCADASTRO.CurrentRow.Cells[8].Value.ToString();
             textBoxNOMESOCIAL.Text = dataGridViewCADASTRO.CurrentRow.Cells[9].Value.ToString();
@@ -188,6 +191,41 @@ namespace Pessoa_Endereco_MySQL
             {
 
                 radioButtonOUT.Checked = true;
+            }
+        }
+
+        private void buttonEXCLUIR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conexao.Open();
+                comando.CommandText = "DELETE FROM tbl_pessoa WHERE id = " + id_pessoa + ";";
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("O cadastro não foi deletado, fale com o administrador do sistema!");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            atualizar_dataGRID();
+        }
+
+        private void dataGridViewCADASTRO_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+            }           
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
             }
         }
     }

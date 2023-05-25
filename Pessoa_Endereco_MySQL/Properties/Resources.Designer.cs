@@ -73,6 +73,16 @@ namespace Pessoa_Endereco_MySQL.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lixo {
+            get {
+                object obj = ResourceManager.GetObject("lixo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap registro {
             get {
                 object obj = ResourceManager.GetObject("registro", resourceCulture);

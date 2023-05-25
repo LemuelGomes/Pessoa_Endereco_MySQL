@@ -63,6 +63,7 @@
             this.buttonCADASTRAR = new System.Windows.Forms.Button();
             this.dataGridViewCADASTRO = new System.Windows.Forms.DataGridView();
             this.buttonFECHAR = new System.Windows.Forms.Button();
+            this.buttonEXCLUIR = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCADASTRO)).BeginInit();
@@ -461,6 +462,7 @@
             this.dataGridViewCADASTRO.Name = "dataGridViewCADASTRO";
             this.dataGridViewCADASTRO.Size = new System.Drawing.Size(444, 190);
             this.dataGridViewCADASTRO.TabIndex = 26;
+            this.dataGridViewCADASTRO.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCADASTRO_CellEndEdit);
             this.dataGridViewCADASTRO.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewCADASTRO_MouseClick);
             // 
             // buttonFECHAR
@@ -481,6 +483,24 @@
             this.buttonFECHAR.UseVisualStyleBackColor = false;
             this.buttonFECHAR.Click += new System.EventHandler(this.buttonFECHAR_Click);
             // 
+            // buttonEXCLUIR
+            // 
+            this.buttonEXCLUIR.BackColor = System.Drawing.Color.Transparent;
+            this.buttonEXCLUIR.BackgroundImage = global::Pessoa_Endereco_MySQL.Properties.Resources.lixo;
+            this.buttonEXCLUIR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonEXCLUIR.FlatAppearance.BorderSize = 0;
+            this.buttonEXCLUIR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEXCLUIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEXCLUIR.Location = new System.Drawing.Point(603, 368);
+            this.buttonEXCLUIR.Name = "buttonEXCLUIR";
+            this.buttonEXCLUIR.Size = new System.Drawing.Size(82, 37);
+            this.buttonEXCLUIR.TabIndex = 28;
+            this.buttonEXCLUIR.Text = "Excluir";
+            this.buttonEXCLUIR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEXCLUIR.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonEXCLUIR.UseVisualStyleBackColor = false;
+            this.buttonEXCLUIR.Click += new System.EventHandler(this.buttonEXCLUIR_Click);
+            // 
             // FormCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,6 +508,7 @@
             this.BackgroundImage = global::Pessoa_Endereco_MySQL.Properties.Resources._5594016;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1059, 409);
+            this.Controls.Add(this.buttonEXCLUIR);
             this.Controls.Add(this.buttonFECHAR);
             this.Controls.Add(this.dataGridViewCADASTRO);
             this.Controls.Add(this.buttonCADASTRAR);
@@ -558,6 +579,7 @@
         private System.Windows.Forms.Button buttonCADASTRAR;
         private System.Windows.Forms.DataGridView dataGridViewCADASTRO;
         private System.Windows.Forms.Button buttonFECHAR;
+        private System.Windows.Forms.Button buttonEXCLUIR;
     }
 }
 
