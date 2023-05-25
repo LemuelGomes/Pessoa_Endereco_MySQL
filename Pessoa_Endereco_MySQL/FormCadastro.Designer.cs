@@ -461,6 +461,7 @@
             this.dataGridViewCADASTRO.Name = "dataGridViewCADASTRO";
             this.dataGridViewCADASTRO.Size = new System.Drawing.Size(444, 190);
             this.dataGridViewCADASTRO.TabIndex = 26;
+            this.dataGridViewCADASTRO.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewCADASTRO_MouseClick);
             // 
             // buttonFECHAR
             // 

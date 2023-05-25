@@ -33,7 +33,7 @@ namespace Pessoa_Endereco_MySQL
             try
             {
                 conexao.Open();
-                comando.CommandText = "SELECT nome, cpf, logradouro, estado FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
+                comando.CommandText = "SELECT *  FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
 
                 MySqlDataAdapter adaptadorCADASTRO = new MySqlDataAdapter(comando);
                 DataTable tabelaCADASTRO = new DataTable();
@@ -157,6 +157,38 @@ namespace Pessoa_Endereco_MySQL
         private void buttonFECHAR_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dataGridViewCADASTRO_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBoxNOME.Text = dataGridViewCADASTRO.CurrentRow.Cells[7].Value.ToString();
+            textBoxSOBRENOME.Text = dataGridViewCADASTRO.CurrentRow.Cells[8].Value.ToString();
+            textBoxNOMESOCIAL.Text = dataGridViewCADASTRO.CurrentRow.Cells[9].Value.ToString();
+            textBoxRG.Text = dataGridViewCADASTRO.CurrentRow.Cells[10].Value.ToString();
+            textBoxCPF.Text = dataGridViewCADASTRO.CurrentRow.Cells[11].Value.ToString();
+            dateTimePickerDATANASC.Text = dataGridViewCADASTRO.CurrentRow.Cells[12].Value.ToString();
+            comboBoxETNIA.Text = dataGridViewCADASTRO.CurrentRow.Cells[13].Value.ToString();
+            textBoxLOGRADOURO.Text = dataGridViewCADASTRO.CurrentRow.Cells[1].Value.ToString();
+            textBoxBAIRRO.Text = dataGridViewCADASTRO.CurrentRow.Cells[2].Value.ToString();
+            textBoxCIDADE.Text = dataGridViewCADASTRO.CurrentRow.Cells[3].Value.ToString();
+            comboBoxESTADO.Text = dataGridViewCADASTRO.CurrentRow.Cells[4].Value.ToString();
+            comboBoxUF.Text = dataGridViewCADASTRO.CurrentRow.Cells[5].Value.ToString();
+
+            if (dataGridViewCADASTRO.CurrentRow.Cells[14].Value.ToString() == "Masculino")
+            {
+                radioButtonMASC.Checked = true;
+            }
+
+            if (dataGridViewCADASTRO.CurrentRow.Cells[14].Value.ToString() == "Feminino")
+            {
+                radioButtonFEM.Checked = true;
+            }
+
+            if (dataGridViewCADASTRO.CurrentRow.Cells[14].Value.ToString() == "OUTRO")
+            {
+
+                radioButtonOUT.Checked = true;
+            }
         }
     }
 }
