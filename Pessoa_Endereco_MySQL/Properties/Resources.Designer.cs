@@ -103,6 +103,16 @@ namespace Pessoa_Endereco_MySQL.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap setas_flechas {
+            get {
+                object obj = ResourceManager.GetObject("setas-flechas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SL_043021_42650_28 {
             get {
                 object obj = ResourceManager.GetObject("SL-043021-42650-28", resourceCulture);

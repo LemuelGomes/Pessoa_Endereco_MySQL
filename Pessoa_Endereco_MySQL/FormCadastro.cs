@@ -28,14 +28,15 @@ namespace Pessoa_Endereco_MySQL
             atualizar_dataGRID();
         }
 
-        string id_pessoa;
+        string id_pessoa = "";
+        string id_endereco = "";
 
         private void atualizar_dataGRID()
         {
             try
             {
                 conexao.Open();
-                comando.CommandText = "SELECT *  FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
+                comando.CommandText = "SELECT *  FROM tbl_pessoa INNER JOIN tbl_endereco ON (tbl_endereco.id = fk_endereco);";
 
                 MySqlDataAdapter adaptadorCADASTRO = new MySqlDataAdapter(comando);
                 DataTable tabelaCADASTRO = new DataTable();
@@ -67,7 +68,6 @@ namespace Pessoa_Endereco_MySQL
                 conexao.Close();
             }
         }
-
         private void buttonCADASTRAR_Click(object sender, EventArgs e)
         {
             string estado = comboBoxESTADO.Text;
@@ -163,35 +163,38 @@ namespace Pessoa_Endereco_MySQL
 
         private void dataGridViewCADASTRO_MouseClick(object sender, MouseEventArgs e)
         {
-            id_pessoa = dataGridViewCADASTRO.CurrentRow.Cells[6].Value.ToString();
-            textBoxNOME.Text = dataGridViewCADASTRO.CurrentRow.Cells[7].Value.ToString();
-            textBoxSOBRENOME.Text = dataGridViewCADASTRO.CurrentRow.Cells[8].Value.ToString();
-            textBoxNOMESOCIAL.Text = dataGridViewCADASTRO.CurrentRow.Cells[9].Value.ToString();
-            textBoxRG.Text = dataGridViewCADASTRO.CurrentRow.Cells[10].Value.ToString();
-            textBoxCPF.Text = dataGridViewCADASTRO.CurrentRow.Cells[11].Value.ToString();
-            dateTimePickerDATANASC.Text = dataGridViewCADASTRO.CurrentRow.Cells[12].Value.ToString();
-            comboBoxETNIA.Text = dataGridViewCADASTRO.CurrentRow.Cells[13].Value.ToString();
-            textBoxLOGRADOURO.Text = dataGridViewCADASTRO.CurrentRow.Cells[1].Value.ToString();
-            textBoxBAIRRO.Text = dataGridViewCADASTRO.CurrentRow.Cells[2].Value.ToString();
-            textBoxCIDADE.Text = dataGridViewCADASTRO.CurrentRow.Cells[3].Value.ToString();
-            comboBoxESTADO.Text = dataGridViewCADASTRO.CurrentRow.Cells[4].Value.ToString();
-            comboBoxUF.Text = dataGridViewCADASTRO.CurrentRow.Cells[5].Value.ToString();
+            id_pessoa = dataGridViewCADASTRO.CurrentRow.Cells[0].Value.ToString();
+            textBoxNOME.Text = dataGridViewCADASTRO.CurrentRow.Cells[1].Value.ToString();
+            textBoxSOBRENOME.Text = dataGridViewCADASTRO.CurrentRow.Cells[2].Value.ToString();
+            textBoxNOMESOCIAL.Text = dataGridViewCADASTRO.CurrentRow.Cells[3].Value.ToString();
+            textBoxRG.Text = dataGridViewCADASTRO.CurrentRow.Cells[4].Value.ToString();
+            textBoxCPF.Text = dataGridViewCADASTRO.CurrentRow.Cells[5].Value.ToString();
+            dateTimePickerDATANASC.Text = dataGridViewCADASTRO.CurrentRow.Cells[6].Value.ToString();
+            comboBoxETNIA.Text = dataGridViewCADASTRO.CurrentRow.Cells[7].Value.ToString();
+            textBoxLOGRADOURO.Text = dataGridViewCADASTRO.CurrentRow.Cells[11].Value.ToString();
+            textBoxBAIRRO.Text = dataGridViewCADASTRO.CurrentRow.Cells[12].Value.ToString();
+            textBoxCIDADE.Text = dataGridViewCADASTRO.CurrentRow.Cells[13].Value.ToString();
+            comboBoxESTADO.Text = dataGridViewCADASTRO.CurrentRow.Cells[14].Value.ToString();
+            comboBoxUF.Text = dataGridViewCADASTRO.CurrentRow.Cells[15].Value.ToString();
 
-            if (dataGridViewCADASTRO.CurrentRow.Cells[14].Value.ToString() == "Masculino")
+            if (dataGridViewCADASTRO.CurrentRow.Cells[8].Value.ToString() == "Masculino")
             {
                 radioButtonMASC.Checked = true;
             }
 
-            if (dataGridViewCADASTRO.CurrentRow.Cells[14].Value.ToString() == "Feminino")
+            if (dataGridViewCADASTRO.CurrentRow.Cells[8].Value.ToString() == "Feminino")
             {
                 radioButtonFEM.Checked = true;
             }
 
-            if (dataGridViewCADASTRO.CurrentRow.Cells[14].Value.ToString() == "OUTRO")
+            if (dataGridViewCADASTRO.CurrentRow.Cells[8].Value.ToString() == "OUTRO")
             {
 
                 radioButtonOUT.Checked = true;
             }
+
+            id_endereco = dataGridViewCADASTRO.CurrentRow.Cells[9].Value.ToString();
+            MessageBox.Show(id_endereco);
         }
 
         private void buttonEXCLUIR_Click(object sender, EventArgs e)
@@ -213,20 +216,68 @@ namespace Pessoa_Endereco_MySQL
             atualizar_dataGRID();
         }
 
-        private void dataGridViewCADASTRO_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void buttonALTERAR_Click(object sender, EventArgs e)
         {
+            string genero = "";
+
+            if (radioButtonMASC.Checked)
+            {
+                genero = "Masculino";
+            }
+            if (radioButtonFEM.Checked)
+            {
+                genero = "Feminino";
+            }
+            if (radioButtonOUT.Checked)
+            {
+                genero = "Outros";
+            }
+
+            //--------------------------------------------------//
+
             try
             {
-
-            }           
+                conexao.Open();
+                comando.CommandText = "UPDATE tbl_pessoa SET nome = '" + textBoxNOME.Text + "', sobrenome = '" + textBoxSOBRENOME.Text + "', nome_social = '" + textBoxNOMESOCIAL.Text + "', rg = '" + textBoxRG.Text + "', cpf = '" + textBoxCPF.Text + "', data_nasc = '" + dateTimePickerDATANASC.Value.ToString("yyyy-MM-dd") + "', etnia = '" + comboBoxETNIA.Text + "', genero = '" + genero + "', fk_endereco = " + id_endereco + " WHERE id = " + id_pessoa + ";";
+                comando.ExecuteNonQuery();
+            }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Seu cadastro não foi atualizado, verifique com o administrador do sistema!");
             }
             finally
             {
-
+                conexao.Close();
             }
+            MessageBox.Show("Seu cadastro foi alterado com sucesso!");
+            atualizar_dataGRID();
+            textBoxNOME.Clear();
+            textBoxSOBRENOME.Clear();
+            textBoxNOMESOCIAL.Clear();
+            textBoxRG.Clear();
+            textBoxCPF.Clear();           
+
+            //--------------------------------------------------//
+
+            try
+            {
+                conexao.Open();
+                comando.CommandText = "UPDATE tbl_endereco SET logradouro = '" + textBoxLOGRADOURO.Text + "', bairro = '" + textBoxBAIRRO.Text + "', cidade = '" + textBoxCIDADE.Text + "', estado = '" + comboBoxESTADO.Text + "', uf = '" + comboBoxUF.Text + "' WHERE id = " + id_endereco + ";";
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Seu cadastro não foi atualizado, verifique com o administrador do sistema!");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            MessageBox.Show("Seu cadastro foi alterado com sucesso!");
+            atualizar_dataGRID();           
+            textBoxLOGRADOURO.Clear();
+            textBoxBAIRRO.Clear();
+            textBoxCIDADE.Clear();
         }
     }
 }

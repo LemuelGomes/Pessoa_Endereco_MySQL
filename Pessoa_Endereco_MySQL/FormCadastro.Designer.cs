@@ -64,6 +64,7 @@
             this.dataGridViewCADASTRO = new System.Windows.Forms.DataGridView();
             this.buttonFECHAR = new System.Windows.Forms.Button();
             this.buttonEXCLUIR = new System.Windows.Forms.Button();
+            this.buttonALTERAR = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCADASTRO)).BeginInit();
@@ -462,7 +463,6 @@
             this.dataGridViewCADASTRO.Name = "dataGridViewCADASTRO";
             this.dataGridViewCADASTRO.Size = new System.Drawing.Size(444, 190);
             this.dataGridViewCADASTRO.TabIndex = 26;
-            this.dataGridViewCADASTRO.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCADASTRO_CellEndEdit);
             this.dataGridViewCADASTRO.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewCADASTRO_MouseClick);
             // 
             // buttonFECHAR
@@ -501,6 +501,24 @@
             this.buttonEXCLUIR.UseVisualStyleBackColor = false;
             this.buttonEXCLUIR.Click += new System.EventHandler(this.buttonEXCLUIR_Click);
             // 
+            // buttonALTERAR
+            // 
+            this.buttonALTERAR.BackColor = System.Drawing.Color.Transparent;
+            this.buttonALTERAR.BackgroundImage = global::Pessoa_Endereco_MySQL.Properties.Resources.setas_flechas;
+            this.buttonALTERAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonALTERAR.FlatAppearance.BorderSize = 0;
+            this.buttonALTERAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonALTERAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonALTERAR.Location = new System.Drawing.Point(691, 368);
+            this.buttonALTERAR.Name = "buttonALTERAR";
+            this.buttonALTERAR.Size = new System.Drawing.Size(82, 37);
+            this.buttonALTERAR.TabIndex = 29;
+            this.buttonALTERAR.Text = "Alterar";
+            this.buttonALTERAR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonALTERAR.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonALTERAR.UseVisualStyleBackColor = false;
+            this.buttonALTERAR.Click += new System.EventHandler(this.buttonALTERAR_Click);
+            // 
             // FormCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,6 +526,7 @@
             this.BackgroundImage = global::Pessoa_Endereco_MySQL.Properties.Resources._5594016;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1059, 409);
+            this.Controls.Add(this.buttonALTERAR);
             this.Controls.Add(this.buttonEXCLUIR);
             this.Controls.Add(this.buttonFECHAR);
             this.Controls.Add(this.dataGridViewCADASTRO);
@@ -580,6 +599,7 @@
         private System.Windows.Forms.DataGridView dataGridViewCADASTRO;
         private System.Windows.Forms.Button buttonFECHAR;
         private System.Windows.Forms.Button buttonEXCLUIR;
+        private System.Windows.Forms.Button buttonALTERAR;
     }
 }
 
